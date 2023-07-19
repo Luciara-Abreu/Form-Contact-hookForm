@@ -17,11 +17,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
  * 
  */
 
+const captalize = ((name: string) => {
+  return name.trim().split(' ').map(word => {
+    return word[0].toLocaleUpperCase().concat(word.substring(1))
+  }).join(' ')
+})
+
 const createContactFormSchema = z.object({
   // Validação com Zod
 
-  name:    z.string().nonempty('O nome é obrigatório'),
-  email:   z.string().nonempty('O email é obrigatório').email('Formato de email inválido'),
+  name:    z.string().nonempty('O nome é obrigatório').transform(captalize),
+  email:   z.string().nonempty('O email é obrigatório').email('Formato de email inválido').toLowerCase(),
   fone:    z.string().min(11, 'informe o DDD + o seu numero'),
   message: z.string().nonempty('O campo é obrigatório').min(6, 'Precisa ser uma mensagem :D'),
 })
