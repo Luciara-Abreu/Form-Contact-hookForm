@@ -12,7 +12,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: #ffff;
-padding: 4dvh 0 6dvh 0;
+padding: 3.5dvh 0 0dvh 0;
 
 @media (max-width: 768px) {
 width: 100%;
