@@ -48,23 +48,45 @@ label {
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    margin-bottom: 2%;
+    margin-bottom: 0%;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
-    background-color: var(--white);
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }   
 
+.containerLabel{
+  span{
+    margin: 0;
+    font-size: 0.8rem;
+    color: red;
+  }
+}
+
 @media (max-width: 768px) {
   .form-control {
     width: 93%;
-    margin-bottom: 10%;
   }
+  
+  .containerGrid{
+    display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide a <div> em duas frações iguais */
+  
+  .left, .right { 
+  padding: 10px;
+}
+span{
+    margin: 0;
+    font-size: 0.8rem;
+    color: red;
+  }
+  
+  }
+
 }
 `
 const ContainerButton = styled.div`
