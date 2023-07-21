@@ -57,7 +57,11 @@ label {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}   
+} 
+
+.vaga{
+  margin-bottom: 5%;
+}
 
 .containerLabel{
   span{
@@ -67,11 +71,44 @@ label {
   }
 }
 
+
+
+.more-information{
+  width: 100%; 
+  padding: 25px 0 25px 0;
+  color: #6c757d;
+  font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 25px;
+
+  .subtitles-information{
+    width: 100%; 
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    flex-direction: column;
+
+    .p-information1, .p-information2{
+      margin: 0;
+    }
+
+  }
+
+  .info{
+    width: 48%;
+
+  }
+  }
+
+
 @media (max-width: 768px) {
   .form-control {
-    width: 93%;
+    width: 48%;
+
   }
-  
+
+  .vaga{
+  margin-bottom: 10%;
+}
   .containerGrid{
     display: grid;
   grid-template-columns: 1fr 1fr; /* Divide a <div> em duas frações iguais */
@@ -83,10 +120,27 @@ span{
     margin: 0;
     font-size: 0.8rem;
     color: red;
-  }
-  
+  }  
+
   }
 
+  .more-information{
+  width: 100%; 
+  margin-top: 20px;
+  color: #555d69;
+  font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 15px;
+
+
+
+
+  //button-info
+  .info{
+    width: 48%;
+    margin:0;
+    margin: -17px!important;
+  }
+  }
 }
 `
 const ContainerButton = styled.div`
@@ -96,7 +150,7 @@ const ContainerButton = styled.div`
   padding-top: 10px;
   
   .btnSubmit{
-  width: 10%;
+    width: 48%;
   font-family: var(--font-family-sans-serif);
   background: #0a6d7a;
   color: aliceblue;
@@ -115,7 +169,11 @@ const ContainerButton = styled.div`
   padding: 20px;
 
   .btnSubmit {
-    width: 93%;
+    width: 48%;
+
+  }
+  .btnSubmit .info{
+    width:20%;
   }
 }
 `
