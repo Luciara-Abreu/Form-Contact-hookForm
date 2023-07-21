@@ -159,8 +159,9 @@ useEffect(() => {
             {/**Add os campos para ascrentar mais informações */}
             {fields.map((field, index) => {
               return (
-                <div key={field.id} className='containerLabel'>
-                  <div>
+                <div key={field.id} className='containerLabelArea'>
+
+                  <div className="area">
                     <label>Sua área</label>
                     <input type="text" className="form-control" placeholder="Exemplo Tec Recruter"
                       {...register(`area.${index}.title`)}
@@ -168,26 +169,26 @@ useEffect(() => {
                     {errors.area?.[index]?.title && <span>{errors.area?.[index]?.title?.message}</span>}
                   </div>
 
-                  <div>
+                  <div className="area">
                     <label>Empresa</label>
                     <input type="text" className="form-control" placeholder="Exemplo XPTO"
                       {...register(`area.${index}.empresa`)}
                     />
                     {errors.area?.[index]?.empresa && <span>{errors.area?.[index]?.empresa?.message}</span>} 
-                    </div>
+                  </div>
 
-                  <div>
+                  <div className="area">
                     <label>Vaga</label>
-                    <input type="text" className="form-control vaga" placeholder="Exemplo Desenvolvedora Front-end"
+                    <input type="text" className="form-control" placeholder="Exemplo Desenvolvedora Front-end"
                       {...register(`area.${index}.vaga`)}
                     />
                     {errors.area?.[index]?.vaga && <span>{errors.area?.[index]?.vaga?.message}</span>}
-                    </div>
+                  </div>
                 </div>
               )
             })}
 
-            <div className='containerLabel message'>
+            <div className='containerLabelMessage'>
               <label >Mensagem</label>
               <textarea className="form-control" placeholder="Digite aqui..." style={{ height: "100px" }}
                 {...register('message')}>

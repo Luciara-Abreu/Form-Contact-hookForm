@@ -76,16 +76,16 @@ span{
     color: red;
   }  
 
-.vaga{
-  margin-bottom: 5%;
-}
 
-.containerLabel{
+.containerLabelArea{
   span{
     margin: 0;
     font-size: 0.8rem;
     color: red;
   }
+.area{
+  margin-top: 10px;
+}
 }
 
 .more-information{
@@ -115,12 +115,24 @@ span{
 
 @media (max-width: 768px) {
   .form-control {
-    width: 90%;
+    width: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; 
   }
+
+  .containerLabelArea{
+  span{
+    margin: 0;
+    font-size: 0.8rem;
+    color: red;
+  }
+.area{
+  margin-top: 15px;
+}
+}
+
 
   .containerGrid{
   width: 100%;
@@ -133,11 +145,6 @@ span{
   .left, .rigth{
     padding-top: 10px;
   }
-
-}
-
-  .vaga{
-  margin-bottom: 10%;
 }
  
   .more-information{
@@ -147,19 +154,17 @@ span{
   font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 15px;
 
-
-
-
-  //button-info
+    //button-info
   .info{
     width: 48%;
     margin:0;
     margin: -17px!important;
   }
   }
-  .massage{
-  padding-top: 6px;
-  }
+
+  .containerLabelMessage{
+    padding-top: 36px;  
+    }
 }
 `
 const ContainerButton = styled.div`
