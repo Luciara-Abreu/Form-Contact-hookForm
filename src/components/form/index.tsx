@@ -115,7 +115,7 @@ useEffect(() => {
           <form onSubmit={handleSubmit(createMessage)}>
 
             <div className='containerLabel'>
-              <label>Nome</label>
+              <label>Seu Nome</label>
               <input type="text" className="form-control" placeholder="nome sobrenome"
                 autoComplete="on"
                 {...register('nome')}
