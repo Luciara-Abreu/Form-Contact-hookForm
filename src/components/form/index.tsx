@@ -186,8 +186,8 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
                   </div>
 
                   {/* Botão de exclusão */}
-                  <ContainerButton className="btnSubmit info">
-                    <button type="button" onClick={() => remove(index)}>
+                  <ContainerButton >
+                    <button className="btnSubmit info" type="button" onClick={() => remove(index)}>
                       Remover
                     </button>
                   </ContainerButton>
