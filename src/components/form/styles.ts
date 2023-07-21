@@ -129,7 +129,7 @@ span{
     color: red;
   }
 .area{
-  margin-top: 15px;
+  margin-top: 1px;
 }
 }
 
@@ -176,7 +176,6 @@ const ContainerButton = styled.div`
   .btnSubmit{
     width: 48%;
   font-family: var(--font-family-sans-serif);
-  background: #030312;
   color: aliceblue;
   font-size: 0.85rem;
   font-weight: 700;
@@ -187,6 +186,10 @@ const ContainerButton = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+
+  background: url("/images/IrF.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {

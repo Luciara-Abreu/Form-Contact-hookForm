@@ -28,13 +28,13 @@ const Title = styled.h2`
 
 
 const HR = styled.h2`
-  width: 8%;
+  width: 10%;
   display: block;
-  unicode-bidi: isolate;
-  margin-block-start: 0.5em; 
-  margin-inline-start: auto;
-  margin-inline-end: auto; 
-  border-top: 2px solid #0a6d7a;
+  border-top: 2px solid;
+  background: url("/images/IrF.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+
 
   @media (max-width: 768px) {
     width: 18%;
