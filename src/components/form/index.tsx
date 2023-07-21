@@ -77,41 +77,41 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
   function createMessage(data: any) {
     fetch("https://formsubmit.co/ajax/6022aec38f12017e7094cebed4e0c3bf", {
       method: "POST",
-      headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
-          name: "FormSubmit",
-          message: JSON.stringify(data, null, 2)
+        name: "FormSubmit",
+        message: JSON.stringify(data, null, 2)
       })
-  })
-  .then(response => response.json())
-  .then(data => {
-    // Verifica se o formulário foi enviado com sucesso
-    if (data.success) {
-      setIsFormSubmitted(true); // Define o estado para true após o envio do formulário
-      onFormSubmitSuccess();
-      console.log(JSON.stringify(data, null, 2));
-      }
-  })
-  .catch(error => {
-    console.error('Erro na solicitação:', error);
-  });
-}
-
-// Redireciona para a página de agradecimento quando o estado isFormSubmitted for true
-useEffect(() => {
-  if (isFormSubmitted) {
-    window.location.href = "http://localhost:3000/"; // Redirecionamento para a página de agradecimento
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Verifica se o formulário foi enviado com sucesso
+        if (data.success) {
+          setIsFormSubmitted(true); // Define o estado para true após o envio do formulário
+          onFormSubmitSuccess();
+          console.log(JSON.stringify(data, null, 2));
+        }
+      })
+      .catch(error => {
+        console.error('Erro na solicitação:', error);
+      });
   }
-}, [isFormSubmitted]);
+
+  // Redireciona para a página de agradecimento quando o estado isFormSubmitted for true
+  useEffect(() => {
+    if (isFormSubmitted) {
+      window.location.href = "http://localhost:3000/"; // Redirecionamento para a página de agradecimento
+    }
+  }, [isFormSubmitted]);
 
 
   return (
     <ContainerFormSendEmail className="containerFormSendEmail">
       <ContainerSection>
-        <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left"> 
+        <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left">
           <form onSubmit={handleSubmit(createMessage)}>
 
             <div className='containerLabel'>
@@ -146,8 +146,8 @@ useEffect(() => {
             <div className='containerLabel'>
               <label className="more-information">
                 <div className='subtitles-information'>
-                <p className="p-information1">Quer adicionar mais informações?</p> 
-                <p className="p-information2">clique aqui</p>
+                  <p className="p-information1">Quer adicionar mais informações?</p>
+                  <p className="p-information2">clique aqui</p>
                 </div>
                 <ContainerButton>
                   <button className="btnSubmit info" type="button" onClick={addInformation}>Adicionar</button>
@@ -174,7 +174,7 @@ useEffect(() => {
                     <input type="text" className="form-control" placeholder="Exemplo XPTO"
                       {...register(`area.${index}.empresa`)}
                     />
-                    {errors.area?.[index]?.empresa && <span>{errors.area?.[index]?.empresa?.message}</span>} 
+                    {errors.area?.[index]?.empresa && <span>{errors.area?.[index]?.empresa?.message}</span>}
                   </div>
 
                   <div className="area">
@@ -184,6 +184,14 @@ useEffect(() => {
                     />
                     {errors.area?.[index]?.vaga && <span>{errors.area?.[index]?.vaga?.message}</span>}
                   </div>
+
+                  {/* Botão de exclusão */}
+                  <ContainerButton className="btnSubmit info">
+                    <button type="button" onClick={() => remove(index)}>
+                      Remover
+                    </button>
+                  </ContainerButton>
+
                 </div>
               )
             })}
