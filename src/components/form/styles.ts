@@ -3,7 +3,11 @@ import styled from 'styled-components'
 const ContainerFormSendEmail = styled.div`
 margin: 0;
 padding: 0;
-width: 100%;
+width: 70%;
+
+@media (max-width: 768px) {
+  width: 100%;
+}
 `
 
 const ContainerSection = styled.div`
@@ -20,7 +24,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: #ffff;
-padding: 10dvh 0 6dvh 0;
+padding: 2dvh 0 0 0;
 }
 `
 
@@ -40,7 +44,7 @@ form{
 
 label {
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
 }
 
 .form-control {
@@ -48,7 +52,6 @@ label {
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    margin-bottom: 0%;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -58,6 +61,20 @@ label {
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 } 
+
+.containerGrid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a <div> em duas frações iguais */
+    gap:35px;
+    padding-top: 15px;
+}
+
+span{
+    margin: 0;
+    font-size: 0.8rem;
+    color: red;
+  }  
 
 .vaga{
   margin-bottom: 5%;
@@ -71,11 +88,9 @@ label {
   }
 }
 
-
-
 .more-information{
   width: 100%; 
-  padding: 25px 0 25px 0;
+  padding: 25px 0 0 0;
   color: #6c757d;
   font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 25px;
@@ -90,43 +105,44 @@ label {
     .p-information1, .p-information2{
       margin: 0;
     }
-
   }
 
   .info{
     width: 48%;
-
   }
   }
 
 
 @media (max-width: 768px) {
   .form-control {
-    width: 48%;
-
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
   }
+
+  .containerGrid{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 1px;
+
+
+  .left, .rigth{
+    padding-top: 10px;
+  }
+
+}
 
   .vaga{
   margin-bottom: 10%;
 }
-  .containerGrid{
-    display: grid;
-  grid-template-columns: 1fr 1fr; /* Divide a <div> em duas frações iguais */
-  
-  .left, .right { 
-  padding: 10px;
-}
-span{
-    margin: 0;
-    font-size: 0.8rem;
-    color: red;
-  }  
-
-  }
-
+ 
   .more-information{
   width: 100%; 
-  margin-top: 20px;
+  margin-top: -14px;
   color: #555d69;
   font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 15px;
@@ -141,6 +157,9 @@ span{
     margin: -17px!important;
   }
   }
+  .massage{
+  padding-top: 6px;
+  }
 }
 `
 const ContainerButton = styled.div`
@@ -152,7 +171,7 @@ const ContainerButton = styled.div`
   .btnSubmit{
     width: 48%;
   font-family: var(--font-family-sans-serif);
-  background: #0a6d7a;
+  background: #030312;
   color: aliceblue;
   font-size: 0.85rem;
   font-weight: 700;
@@ -166,7 +185,7 @@ const ContainerButton = styled.div`
 }
 
 @media (max-width: 768px) {
-  padding: 20px;
+  padding: 10px;
 
   .btnSubmit {
     width: 48%;

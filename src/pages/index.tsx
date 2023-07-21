@@ -13,7 +13,7 @@ export default function Home() {
   }
 
   return (
-    <Container>    
+    <Container className = "ContainerHome">    
       {isFormSubmitted ? <Thanks /> : (
         <>
           <Apresentation />

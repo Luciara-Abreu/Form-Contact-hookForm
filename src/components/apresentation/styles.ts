@@ -3,7 +3,11 @@ import styled from 'styled-components'
 const ContainerFormSendEmail = styled.div`
 margin: 0;
 padding: 0;
-width: 100%;
+width: 70%;
+
+@media (max-width: 768px) {
+  width: 100%;
+}
 `
 
 const ContainerApresentation = styled.div`

@@ -109,7 +109,7 @@ useEffect(() => {
 
 
   return (
-    <ContainerFormSendEmail>
+    <ContainerFormSendEmail className="containerFormSendEmail">
       <ContainerSection>
         <ContainerSectionForm data-aos="zoom-in-left"> 
           <form onSubmit={handleSubmit(createMessage)}>
@@ -146,7 +146,7 @@ useEffect(() => {
             <div className='containerLabel'>
               <label className="more-information">
                 <div className='subtitles-information'>
-                <p className="p-information1">Tem uma vaga, e quer adicionar mais informações?</p> 
+                <p className="p-information1">Quer adicionar mais informações?</p> 
                 <p className="p-information2">clique aqui</p>
                 </div>
                 <ContainerButton>
@@ -187,7 +187,7 @@ useEffect(() => {
               )
             })}
 
-            <div className='containerLabel'>
+            <div className='containerLabel message'>
               <label >Mensagem</label>
               <textarea className="form-control" placeholder="Digite aqui..." style={{ height: "100px" }}
                 {...register('message')}>
