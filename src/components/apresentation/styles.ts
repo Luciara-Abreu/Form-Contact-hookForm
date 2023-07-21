@@ -4,6 +4,9 @@ const ContainerFormApresentation = styled.div`
 margin: 0;
 padding: 0;
 width: 70%;
+background: url("/images/IrF.gif");
+background-size: cover;
+background-repeat: no-repeat;
 
 
 @media (max-width: 768px) {
@@ -33,11 +36,7 @@ const Title = styled.h2`
 const HR = styled.h2`
   width: 10%;
   display: block;
-  border-top: 2px solid;
-  background: url("/images/IrF.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-
+  border-top: 2px solid #ffff; 
 
   @media (max-width: 768px) {
     width: 0%;
@@ -57,9 +56,9 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 justify-content: baseline;
+padding-bottom: 12px;
 
 .text-muted1, .text-muted2{
-//color: #6c757d;
 color: aliceblue;
 font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 margin:0;

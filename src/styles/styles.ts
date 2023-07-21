@@ -8,14 +8,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //background: url("/images/B2bo.gif");
-  background: url("/images/IrF.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-
-
-
-
+  background: #f3ebed;
+ 
   @media (max-width: 767px) {
     width: auto;
     height: auto;
