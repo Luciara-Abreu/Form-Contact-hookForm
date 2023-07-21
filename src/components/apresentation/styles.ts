@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
-const ContainerFormSendEmail = styled.div`
+const ContainerFormApresentation = styled.div`
 margin: 0;
 padding: 0;
 width: 70%;
 
+
 @media (max-width: 768px) {
-  width: 100%;
-}
+  width: 90%;
+  padding-bottom: 10px;
+  }
 `
 
 const ContainerApresentation = styled.div`
@@ -16,7 +18,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background: #ffff;
+background: transparent;
 `
 const Title = styled.h2`
   font-size: 3rem;
@@ -24,6 +26,7 @@ const Title = styled.h2`
   font-family: var(--font-family-sans-serif);
   font-weight: 500;
   line-height: 1.2;
+  color: aliceblue;
 `;
 
 
@@ -37,7 +40,9 @@ const HR = styled.h2`
 
 
   @media (max-width: 768px) {
-    width: 18%;
+    width: 0%;
+    margin: 0;
+   padding: 0;
   }
   `
 
@@ -54,7 +59,8 @@ align-items: center;
 justify-content: baseline;
 
 .text-muted1, .text-muted2{
-color: #6c757d;
+//color: #6c757d;
+color: aliceblue;
 font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 margin:0;
 padding-left: 4px;
@@ -91,7 +97,7 @@ padding-left: 4px;
 `
 
 export {
-  ContainerFormSendEmail,
+  ContainerFormApresentation,
   ContainerApresentation,
   ContainerInitial,
   SubTitle,

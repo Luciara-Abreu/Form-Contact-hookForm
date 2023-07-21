@@ -111,7 +111,7 @@ useEffect(() => {
   return (
     <ContainerFormSendEmail className="containerFormSendEmail">
       <ContainerSection>
-        <ContainerSectionForm data-aos="zoom-in-left"> 
+        <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left"> 
           <form onSubmit={handleSubmit(createMessage)}>
 
             <div className='containerLabel'>

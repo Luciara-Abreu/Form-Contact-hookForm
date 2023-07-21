@@ -1,7 +1,7 @@
 import React, { useEffect} from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { ContainerApresentation,  ContainerFormSendEmail, ContainerInitial, SubTitle, HR, Title } from "./styles";
+import { ContainerApresentation,  ContainerFormApresentation, ContainerInitial, SubTitle, HR, Title } from "./styles";
 
 
 function Apresentation() {
@@ -16,7 +16,7 @@ function Apresentation() {
 
 
   return (
-        <ContainerFormSendEmail>
+        <ContainerFormApresentation className='ContainerFormApresentation'>
             <ContainerApresentation data-aos="zoom-in-up" data-aos-duration="1000">
               <Title>Fale comigo!</Title>
               <HR />
@@ -28,7 +28,7 @@ function Apresentation() {
               </ContainerInitial>
 
             </ContainerApresentation>
-        </ContainerFormSendEmail>
+        </ContainerFormApresentation>
   );
 }
 

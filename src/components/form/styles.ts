@@ -6,7 +6,7 @@ padding: 0;
 width: 70%;
 
 @media (max-width: 768px) {
-  width: 100%;
+  width: 100%;  
 }
 `
 
@@ -23,8 +23,8 @@ width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-background: #ffff;
-padding: 2dvh 0 0 0;
+background: #f3ebed;
+padding: 3dvh 0 0 0;
 }
 `
 
@@ -114,6 +114,9 @@ span{
 
 
 @media (max-width: 768px) {
+  width: 100%;
+  background: #f3ebed;
+
   .form-control {
     width: 95%;
     display: flex;
@@ -129,7 +132,7 @@ span{
     color: red;
   }
 .area{
-  margin-top: 1px;
+  margin-top: 10px;
 }
 }
 
