@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const ContainerFormApresentation = styled.div`
 margin: 0;
 padding: 0;
-width: 70%;
+width: 100%;
 background: url("/images/IrF.gif");
 background-size: cover;
 background-repeat: no-repeat;

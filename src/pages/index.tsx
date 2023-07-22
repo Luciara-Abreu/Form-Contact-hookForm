@@ -1,4 +1,3 @@
-import Apresentation from "@/components/apresentation";
 import FormSendEmail from "@/components/form";
 import Thanks from "@/components/tanks";
 import { Container } from "@/styles/styles";
@@ -15,8 +14,7 @@ export default function Home() {
   return (
     <Container className = "ContainerHome">    
       {isFormSubmitted ? <Thanks /> : (
-        <>
-          <Apresentation />
+        <>  
           <FormSendEmail onFormSubmitSuccess={handleFormSubmitSuccess} />
         </>
       )}

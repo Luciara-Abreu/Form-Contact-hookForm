@@ -1,11 +1,12 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { ContainerButton, ContainerFormSendEmail, ContainerSection, ContainerSectionForm } from "./styles";
+import { ContainerButton, ContainerFormSendEmail,ContainerLabel,  ContainerSectionForm } from "./styles";
 import { useEffect, useRef, useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Thanks from '../tanks';
+import Apresentation from '../apresentation';
 
 
 /*** 
@@ -129,52 +130,46 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
 
   return (
     <ContainerFormSendEmail className="containerFormSendEmail">
-      <ContainerSection>
+      <Apresentation />
         <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left"  ref={fieldsAreaRef}>
-          <form onSubmit={handleSubmit(createMessage)}>
+          <form className='form'onSubmit={handleSubmit(createMessage)}>
 
-            <div className='containerLabel'>
-              <label>Seu Nome</label>
+            <ContainerLabel className='containerLabel'>
+              <label className='labelName'>Seu Nome</label>
               <input type="text" className="form-control" placeholder="nome sobrenome"
                 autoComplete="on"
                 {...register('nome')}
               />
               {errors.nome && <span>{errors.nome.message}</span>}
-            </div>
+            </ContainerLabel>
 
-            <div className='containerGrid'>
-              <div className="left">
-                <label>Email</label>
-                <input type="email" className="form-control" placeholder="nome@email.com"
+            <ContainerLabel className='containerGrid'>
+              <label>Email</label>
+                <input type="email" className="form-control left" placeholder="nome@email.com"
                   autoComplete="on"
                   {...register('email')}
                 />
                 {errors.email && <span>{errors.email.message}</span>}
-              </div>
-
-              <div className="right">
+                
                 <label>Fone </label>
-                <input type="fone" className="form-control" placeholder="(xx) xxxxx-xxxx"
+                <input type="fone" className="form-control right" placeholder="(xx) xxxxx-xxxx"
                   autoComplete="on"
                   {...register('fone')}
                 />
                 {errors.fone && <span>{errors.fone.message}</span>}
-              </div>
-            </div>
+            </ContainerLabel>
 
-            <div className='containerLabel'>
-              <label className="more-information">
-                <div className='subtitles-information'>
-                  <p className="p-information1">Quer adicionar mais informações?</p>
-                  <p className="p-information2">clique aqui</p>
+            <ContainerLabel className='containerLabel'>
+                <div className='more-information'>
+                  <p className="p-1">Quer adicionar mais informações?</p>
+                  <p className="p-2">clique aqui</p>
                 </div>
                 {fields.length < MAX_AREA_FIELDS && (
                 <ContainerButton>
                   <button className="btnSubmit info" type="button" onClick={addInformation}>Adicionar</button>
                 </ContainerButton>
                 )}
-              </label>
-            </div>
+            </ContainerLabel>
 
 
             {/**Add os campos para ascrentar mais informações */}
@@ -182,65 +177,68 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
               return (
                 <div key={field.id} className='containerLabelArea'>
 
-                  <div className="area">
+                  <ContainerLabel className="area">
                     <label>Sua área</label>
                     <input type="text" className="form-control" placeholder="Exemplo Tec Recruter"
                       {...register(`area.${index}.title`)}
                     />
                     {errors.area?.[index]?.title && <span>{errors.area?.[index]?.title?.message}</span>}
-                  </div>
+                  </ContainerLabel>
 
-                  <div className="area">
+                  <ContainerLabel className="area">
                     <label>Empresa</label>
                     <input type="text" className="form-control" placeholder="Exemplo XPTO"
                       {...register(`area.${index}.empresa`)}
                     />
                     {errors.area?.[index]?.empresa && <span>{errors.area?.[index]?.empresa?.message}</span>}
-                  </div>
+                  </ContainerLabel>
 
-                  <div className="area">
+                  <ContainerLabel className="area">
                     <label>Vaga</label>
                     <input type="text" className="form-control" placeholder="Exemplo Desenvolvedora Front-end"
                       {...register(`area.${index}.vaga`)}
                     />
                     {errors.area?.[index]?.vaga && <span>{errors.area?.[index]?.vaga?.message}</span>}
-                  </div>
+                  </ContainerLabel>
 
-                  <div className="area">
+                  <ContainerLabel className="area">
                     <label>Salário</label>
                     <input type="text" className="form-control" placeholder="Exemplo R$ 00.000,00"
                       {...register(`area.${index}.salario`)}
                     />
                     {errors.area?.[index]?.vaga && <span>{errors.area?.[index]?.vaga?.message}</span>}
-                  </div>
+                  </ContainerLabel>
 
+                  <ContainerLabel style={{ paddingTop: '30px', paddingBottom: '10px' }}>
                   {/* Botão de exclusão */}
                   <ContainerButton className= 'containerButton remove' >
                     <button className="btnSubmit info" type="button" onClick={() => remove(index)}>
                       Remover
                     </button>
                   </ContainerButton>
+                  </ContainerLabel>
 
                 </div>
               )
             })}
 
-            <div className='containerLabelMessage'>
-              <label >Mensagem</label>
+            <ContainerLabel>
+              <label>Mensagem</label>
               <textarea className="form-control" placeholder="Digite aqui..." style={{ height: "100px" }}
                 {...register('message')}>
               </textarea>
               {errors.message && <span>{errors.message.message}</span>}
-            </div>
+            </ContainerLabel>
 
-            <ContainerButton>
+            <ContainerLabel style={{ paddingTop: '30px', paddingBottom: '10px' }}>
+            <ContainerButton className="btnSendForm">
               <button className="btnSubmit" type="submit">Enviar</button>
             </ContainerButton>
+            </ContainerLabel>
 
             <input type="hidden" name="redirectTo" value="Thanks" />
           </form>
-        </ContainerSectionForm>
-      </ContainerSection>
+        </ContainerSectionForm>   
     </ContainerFormSendEmail>
   );
 }
