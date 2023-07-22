@@ -49,8 +49,7 @@ const ContainerLabel = styled.div`
   }
 
   .labelName{
-    padding-top: 60px;
-
+    padding-top: 30px;
   }
 
 .form-control {
@@ -143,12 +142,24 @@ span{
   align-items: center;   
 
   .p-1, .p-2{
-    padding: 15px 0 0 0;
     margin: 0;
     color: #555d69;
     font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: 20px;
     }
+
+    .p-1{
+    padding: 10px 0 0 0;
+  }
+    .p-2{
+    padding: 15px 0 0 0;
+
+  }
+
+  }
+
+  .labelName{
+    padding-top: 60px;
   }
 }
 `
