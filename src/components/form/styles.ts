@@ -49,7 +49,7 @@ const ContainerLabel = styled.div`
   }
 
   .labelName{
-    padding-top: 30px;
+    padding-top: 60px;
 
   }
 

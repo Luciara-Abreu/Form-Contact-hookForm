@@ -12,7 +12,7 @@ const Container = styled.div`
 
   @media (max-width: 767px) {
     width: 130%;
-    height: 120vh;
+    height: 130vh;
     margin: 0;
     padding: 0;
   }
