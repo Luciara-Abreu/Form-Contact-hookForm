@@ -16,7 +16,7 @@ background-repeat: no-repeat;
 `
 
 const ContainerApresentation = styled.div`
-width: 100%;
+width: 90%;
 display: flex;
 flex-direction: column;
 justify-content: center;
