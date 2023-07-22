@@ -11,8 +11,8 @@ const Container = styled.div`
   background: #f3ebed;
 
   @media (max-width: 767px) {
-    width: 125%;
-    height: 100vh;
+    width: 130%;
+    height: 130vh;
     margin: 0;
     padding: 0;
   }
