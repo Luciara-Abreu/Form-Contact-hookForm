@@ -5,11 +5,12 @@ import Image from 'next/image'
 function Thanks() {
   return (
   <Body>
-    <h1 className="text">Obrigado Pelo contato!</h1>
+    <h1 className="text1">Obrigado Pelo</h1>
+    <h1 className="text2">contato!</h1>
     <p className="paragrafo1">Tão logo te retorno</p>
     <p id="paragrafo2">Atenciosamente Lúci Abreu</p>
     <Image src="/images/seta.gif" className="seta-dedo"  alt="seta para baixo" width={50} height={50} />
-        <a className="btn" href="index.html">Home</a>
+        <a className="btn" href="https://form-contact-hook-form.vercel.app/">Home</a>
   </Body>
   )
 }
@@ -31,11 +32,13 @@ const Body = styled.div`
     justify-content: center;
     align-items: center;
 
-    .text {
-  font-size: 45px;
-  color: #212529;
-  margin-bottom: 30px;
-}
+    .text1, .text2{
+      margin: 0;
+      padding: 0 0 20px 0;
+      font-size: 45px;
+      color: #212529;
+    }
+
 
 .paragrafo1 {
   font-size: 25px;
