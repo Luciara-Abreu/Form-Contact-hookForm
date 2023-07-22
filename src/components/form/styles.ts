@@ -5,6 +5,7 @@ margin: 0;
 padding: 0;
 width: 70%;
 
+
 @media (max-width: 768px) {
   width: 100%;  
 }
@@ -90,7 +91,7 @@ span{
 
 .more-information{
   width: 100%; 
-  padding: 25px 0 0 0;
+  padding: 60px 0 5px 0;
   color: #6c757d;
   font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 25px;
@@ -153,6 +154,7 @@ span{
   .more-information{
   width: 100%; 
   margin-top: -14px;
+  padding: 25px 0 0 0;
   color: #555d69;
   font-family: "Merriweather",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 15px;
@@ -174,7 +176,6 @@ const ContainerButton = styled.div`
   display: flex;
   justify-content: center;
   margin: 1em;
-  padding-top: 10px;
   
   .btnSubmit{
     width: 48%;
@@ -206,7 +207,12 @@ const ContainerButton = styled.div`
     width:20%;
   }
 }
+
+.remove{
+  margin: 1px 0 1px 0;
+}
 `
+
 
 
 

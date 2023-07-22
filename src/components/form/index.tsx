@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ContainerButton, ContainerFormSendEmail, ContainerSection, ContainerSectionForm } from "./styles";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -13,9 +13,6 @@ import Thanks from '../tanks';
  * 
  * [ok] Validação / Transformação com Zod
  * [ok] Field Arrays / 
- * [] Upload de arquivos
- * [] Composition Pattern
- * 
  */
 
 const captalize = ((name: string) => {
@@ -35,6 +32,7 @@ const createContactFormSchema = z.object({
     title: z.string().nonempty('Campo Obrgatório'),
     empresa: z.string().nonempty('Campo Obrgatório'),
     vaga: z.string(),
+    salario: z.string()
   }))
 })
 
@@ -49,6 +47,7 @@ type FormSubmitSuccessProps = {
 
 function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [scrollAmount, setScrollAmount] = useState(200); 
   const [output, setOutput] = useState('')
   const { register, handleSubmit, formState: { errors }, control } = useForm<CreateContactFormData>({
     resolver: zodResolver(createContactFormSchema)
@@ -59,8 +58,27 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
     name: 'area',
   })
 
+  const fieldsAreaRef = useRef<HTMLDivElement>(null);
+
+  // limita add do container campos.
+  const MAX_AREA_FIELDS = 1; 
+
+
   function addInformation() {
-    append({ title: '', empresa: '', vaga: '' })
+    if (fields.length < MAX_AREA_FIELDS) {
+    append({ title: '', empresa: '', vaga: '', salario: '' })
+
+    // Aguardar um pequeno intervalo antes de rolar para a posição dos campos
+    // Isso permite que os campos sejam renderizados antes de calcular a posição
+    setTimeout(() => {
+      if (fieldsAreaRef.current) {
+        const fieldsAreaPosition = fieldsAreaRef.current.getBoundingClientRect().top + 200; // 50 é um valor de offset, você pode ajustá-lo conforme necessário
+        window.scrollTo({ top: fieldsAreaPosition, behavior: 'smooth' });
+      }
+    }, 100); // Ajuste o valor do intervalo conforme necessário, 100ms é um valor razoável
+ 
+
+    }
   }
 
 
@@ -71,7 +89,6 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
       AOS.refresh(); // Atualiza o AOS quando o componente é desmontado
     };
   }, []);
-
 
 
   function createMessage(data: any) {
@@ -107,11 +124,13 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
     }
   }, [isFormSubmitted]);
 
+ 
+
 
   return (
     <ContainerFormSendEmail className="containerFormSendEmail">
       <ContainerSection>
-        <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left">
+        <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left"  ref={fieldsAreaRef}>
           <form onSubmit={handleSubmit(createMessage)}>
 
             <div className='containerLabel'>
@@ -149,9 +168,11 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
                   <p className="p-information1">Quer adicionar mais informações?</p>
                   <p className="p-information2">clique aqui</p>
                 </div>
+                {fields.length < MAX_AREA_FIELDS && (
                 <ContainerButton>
                   <button className="btnSubmit info" type="button" onClick={addInformation}>Adicionar</button>
                 </ContainerButton>
+                )}
               </label>
             </div>
 
@@ -185,8 +206,16 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
                     {errors.area?.[index]?.vaga && <span>{errors.area?.[index]?.vaga?.message}</span>}
                   </div>
 
+                  <div className="area">
+                    <label>Salário</label>
+                    <input type="text" className="form-control" placeholder="Exemplo R$ 00.000,00"
+                      {...register(`area.${index}.salario`)}
+                    />
+                    {errors.area?.[index]?.vaga && <span>{errors.area?.[index]?.vaga?.message}</span>}
+                  </div>
+
                   {/* Botão de exclusão */}
-                  <ContainerButton >
+                  <ContainerButton className= 'containerButton remove' >
                     <button className="btnSubmit info" type="button" onClick={() => remove(index)}>
                       Remover
                     </button>
