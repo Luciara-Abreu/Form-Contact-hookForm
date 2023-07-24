@@ -1,87 +1,18 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { ContainerButton, ContainerFormSendEmail,ContainerLabel,  ContainerSectionForm } from "./styles";
-import { useEffect, useRef, useState } from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import Thanks from '../tanks';
+import { ContainerButton, ContainerFormSendEmail, ContainerLabel, ContainerSectionForm } from "./styles";
+import { useEffect, useState } from 'react';
 import Apresentation from '../apresentation';
-
-
-/*** 
- * To-do
- * 
- * [ok] Validação / Transformação com Zod
- * [ok] Field Arrays / 
- */
-
-const captalize = ((name: string) => {
-  return name.trim().split(' ').map(word => {
-    return word[0].toLocaleUpperCase().concat(word.substring(1))
-  }).join(' ')
-})
-
-const createContactFormSchema = z.object({
-  // Validação com Zod
-
-  nome: z.string().nonempty('O nome é obrigatório').transform(captalize),
-  email: z.string().nonempty('O email é obrigatório').email('Formato de email inválido').toLowerCase(),
-  fone: z.string().min(11, 'informe o DDD + o seu numero'),
-  message: z.string().min(6, 'Precisa ser uma mensagem :D'),
-  area: z.array(z.object({
-    title: z.string().nonempty('Campo Obrgatório'),
-    empresa: z.string().nonempty('Campo Obrgatório'),
-    vaga: z.string(),
-    salario: z.string()
-  }))
-})
-
-//typagem
-type CreateContactFormData = z.infer<typeof createContactFormSchema>
-
-// Prop da função de sucesso do formulário
-type FormSubmitSuccessProps = {
-  onFormSubmitSuccess: () => void;
-};
+import { FormSubmitSuccessProps } from '@/utils';
+import { CreateMessageSendEmail } from '../createMessage';
+import { useCreateField } from '@/hooks';
 
 
 function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [scrollAmount, setScrollAmount] = useState(200); 
-  const [output, setOutput] = useState('')
-  const { register, handleSubmit, formState: { errors }, control } = useForm<CreateContactFormData>({
-    resolver: zodResolver(createContactFormSchema)
-  })
 
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'area',
-  })
-
-  const fieldsAreaRef = useRef<HTMLDivElement>(null);
-
-  // limita add do container campos.
-  const MAX_AREA_FIELDS = 1; 
-
-
-  function addInformation() {
-    if (fields.length < MAX_AREA_FIELDS) {
-    append({ title: '', empresa: '', vaga: '', salario: '' })
-
-    // Aguardar um pequeno intervalo antes de rolar para a posição dos campos
-    // Isso permite que os campos sejam renderizados antes de calcular a posição
-    setTimeout(() => {
-      if (fieldsAreaRef.current) {
-        const fieldsAreaPosition = fieldsAreaRef.current.getBoundingClientRect().top + 200; // 50 é um valor de offset, você pode ajustá-lo conforme necessário
-        window.scrollTo({ top: fieldsAreaPosition, behavior: 'smooth' });
-      }
-    }, 100); // Ajuste o valor do intervalo conforme necessário, 100ms é um valor razoável
- 
-
-    }
-  }
-
+// Use o hook para add novos campos
+const { register, handleSubmit, errors, addInformation, fields, append, remove, fieldsAreaRef, MAX_AREA_FIELDS } = useCreateField();
 
   useEffect(() => {
     AOS.init(); // Inicia o AOS
@@ -92,32 +23,6 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
   }, []);
 
 
-  function createMessage(data: any) {
-    fetch("https://formsubmit.co/ajax/6022aec38f12017e7094cebed4e0c3bf", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        name: "FormSubmit",
-        message: JSON.stringify(data, null, 2)
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Verifica se o formulário foi enviado com sucesso
-        if (data.success) {
-          setIsFormSubmitted(true); // Define o estado para true após o envio do formulário
-          onFormSubmitSuccess();
-          console.log(JSON.stringify(data, null, 2));
-        }
-      })
-      .catch(error => {
-        console.error('Erro na solicitação:', error);
-      });
-  }
-
   // Redireciona para a página de agradecimento quando o estado isFormSubmitted for true
   useEffect(() => {
     if (isFormSubmitted) {
@@ -125,14 +30,14 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
     }
   }, [isFormSubmitted]);
 
- 
-
+  //Cria o escopo da mesagem via API
+  const createMassage = CreateMessageSendEmail(onFormSubmitSuccess);
 
   return (
     <ContainerFormSendEmail className="containerFormSendEmail">
       <Apresentation />
         <ContainerSectionForm className="containerSectionForm" data-aos="zoom-in-left"  ref={fieldsAreaRef}>
-          <form className='form'onSubmit={handleSubmit(createMessage)}>
+          <form className='form'onSubmit={handleSubmit(createMassage)}>
 
             <ContainerLabel className='containerLabel'>
               <label className='labelName'>Seu Nome</label>
@@ -244,4 +149,3 @@ function FormSendEmail({ onFormSubmitSuccess }: FormSubmitSuccessProps) {
 }
 
 export default FormSendEmail;
-
