@@ -6,7 +6,6 @@ import { useRef } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 
 
-
 export function useCreateField() {
   const { register, handleSubmit, formState: { errors }, control } = useForm<CreateContactFormData>({
     resolver: zodResolver(createContactFormSchema)
@@ -29,10 +28,10 @@ export function useCreateField() {
       // Isso permite que os campos sejam renderizados antes de calcular a posição
       setTimeout(() => {
         if (fieldsAreaRef.current) {
-          const fieldsAreaPosition = fieldsAreaRef.current.getBoundingClientRect().top + 200; // 50 é um valor de offset, você pode ajustá-lo conforme necessário
+          const fieldsAreaPosition = fieldsAreaRef.current.getBoundingClientRect().top + 200; 
           window.scrollTo({ top: fieldsAreaPosition, behavior: 'smooth' });
         }
-      }, 100); // Ajuste o valor do intervalo conforme necessário, 100ms é um valor razoável
+      }, 100);
 
     }
   }
