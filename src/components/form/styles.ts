@@ -101,9 +101,11 @@ const ContainerLabel = styled.div`
   }  
 
 span{
-    margin: 0;
-    font-size: 0.8rem;
-    color: red;
+  width: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+  color: red;
+  padding-left: 86px;
   }  
 
 .area{
