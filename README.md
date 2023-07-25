@@ -11,6 +11,14 @@
 
 
 
+## Vídeo de Demonstração
+
+<video width="320" height="240" controls loop>
+  <source src="./public/images/video-form_ Loom - 25 July 2023.mp4" type="video/mp4">
+  Seu navegador não suporta a reprodução do vídeo.
+</video>
+
+
 <h2>Desvendando os Bastidores de um Formulário Next com React, Hook-Form, Zod e a Mágica da API</h2>
 
 <p align="center"> Queridos leitores, hoje estou animada para compartilhar com vocês a emocionante jornada de criação do meu próprio formulário Next com React, usando as poderosas ferramentas Hook-Form e Zod para validação de campos. Não poderia deixar de mencionar a emocionante aventura de enviar meus dados através da API do FormSubmit.co diretamente para o meu e-mail. Acreditem, não foi apenas uma experiência incrível, mas também uma oportunidade para aprender e aplicar técnicas avançadas, como a componentização, que tornaram meu código mais organizado e reutilizável.  </p>
