@@ -13,8 +13,7 @@
 
 ## Vídeo de Demonstração
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t4obeiL51ZI" frameborder="0" allowfullscreen></iframe>
-
+[![Vídeo de Demonstração](https://img.youtube.com/vi/t4obeiL51ZI/0.jpg)](https://youtu.be/t4obeiL51ZI)
 
 
 <h2>Desvendando os Bastidores de um Formulário Next com React, Hook-Form, Zod e a Mágica da API</h2>
