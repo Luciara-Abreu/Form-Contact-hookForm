@@ -2,12 +2,13 @@
 <h2>Descrição</h2>
 <p align="center"> Bem-vindo ao projeto do Formulário Next! Este repositório contém um formulário web desenvolvido com React, utilizando o poderoso React Hook-Form para gerenciamento de estado e validação de campos com o auxílio do Zod. Além disso, a API do FormSubmit.co é utilizada para enviar os dados do formulário diretamente para o seu e-mail. O projeto também inclui animações encantadoras fornecidas pela biblioteca Aos, que tornam a experiência interativa ainda mais envolvente. </p>
 
-<h2 align="center">Tecnologias Utilizadas</h2>
-[v] React
-[v] React Hook-Form
-[v] Zod
-[v] FormSubmit.co API
-[v] Biblioteca Aos para efeitos
+<h2>Tecnologias Utilizadas</h2>
+<p>[v] React </p>
+<p>[v] React Hook-Form</p>
+<p>[v] Zod</p>
+<p>[v] FormSubmit.co API</p>
+<p>[v] Biblioteca Aos para efeitos</p>
+
 
 
 <h2>Desvendando os Bastidores de um Formulário Next com React, Hook-Form, Zod e a Mágica da API</h2>
@@ -46,6 +47,5 @@ e o Controller a cada tecla ele anota o seu valor dentro do estado provocando ma
 
 <h2 align="center">Autor</h2>
 <h3>Luci Abreu</h3>
-
-GitHub: @Luciara-Abreu
-LinkedIn: https://www.linkedin.com/in/luciara-abreu/
+<p>GitHub: @Luciara-Abreu</p>
+<p>LinkedIn: https://www.linkedin.com/in/luciara-abreu/</p>
