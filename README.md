@@ -13,10 +13,7 @@
 
 ## Vídeo de Demonstração
 
-<video width="320" height="240" controls loop>
-  <source src="https://github.com/Luciara-Abreu/Form-Contact-hookForm/assets/36546342/b2c862b0-43df-4ba8-afe6-0622f07690fa" type="video/mp4">
-  Seu navegador não suporta a reprodução do vídeo.
-</video>
+Clique [aqui](https://github.com/Luciara-Abreu/Form-Contact-hookForm/assets/36546342/b2c862b0-43df-4ba8-afe6-0622f07690fa) para assistir ao vídeo de demonstração.
 
 
 <h2>Desvendando os Bastidores de um Formulário Next com React, Hook-Form, Zod e a Mágica da API</h2>
