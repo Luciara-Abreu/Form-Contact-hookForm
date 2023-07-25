@@ -14,7 +14,8 @@
 ## Vídeo de Demonstração
 
 <video width="320" height="240" controls>
-  <source src="https://www.loom.com/share/759b432480934ed08574918db4b2a849?sid=476eb043-fb18-4cff-a3a6-3a843dde4c7b" type="video/mp4">
+  <source src="https://www.loom.com/share/2c33d63b349e428ebc43f39976d709e9?sid=889e99bb-7210-42d2-9dc5-2e206db8ca46"
+  type="video/mp4">
   Seu navegador não suporta a reprodução do vídeo.
 </video>
 
